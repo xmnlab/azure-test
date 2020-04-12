@@ -1,6 +1,6 @@
 jobs:
 - ${{ each pythonNoDotVersion in parameters.pythonNotDoVersionsSupport }}:
-  - job: ${{ format('Linux{0}Test', pythonVersion) }}
+  - job: ${{ format('Linux{0}Test', pythonNoDotVersion) }}
 
     pool:
       vmImage: 'ubuntu-latest'
