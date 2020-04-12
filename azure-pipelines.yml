@@ -1,38 +1,9 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-parameters:
-  python_version_supports: ['3.6', '3.7', '3.8']
-
 jobs:
-- ${{ each PYTHON_VERSION in parameters.python_version_supports }}:
-  - job: Linux${{ python }}Test
 
-    pool:
-      vmImage: 'ubuntu-latest'
+- template: azure-pipelines-linux.yml
+  parameters:
+    python_versions_support: [ '3.6', '3.7', '3.8' ]
 
-    variables:
-      AZURECI: 1
-      PYTHON_VERSION: ${{ PYTHON_VERSION }}
-      PYTHON_NO_DOT_VERSION: ${{ PYTHON_VERSION[0] }}${{ PYTHON_VERSION[2] }}
-
-    strategy:
-      matrix:
-        bigquery:
-          BACKENDS: 'bigquery'
-        omniscidb:
-          BACKENDS: 'omniscidb'
-
-    steps:
-    
-      - bash: echo ${{ PYTHON_VERSION }}
-        displayName: 'DISPLAY PYTHON VERSION'
-
-      - bash: echo ${{ PYTHON_NO_DOT_VERSION }}
-        displayName: 'DISPLAY PYTHON VERSION WITH NO DOT'
-
-      - bash: echo ${{ BACKENDS }}
-        displayName: 'DISPLAY BACKENDS'
-
+- template: azure-pipelines-windows.yml
+  parameters:
+    python_versions_support: [ '3.6', '3.7', '3.8' ]
