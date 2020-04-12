@@ -1,6 +1,6 @@
 jobs:
 - ${{ each pythonVersion in parameters.pythonVersionsSupport }}:
-  - job: ${{ format('Linux{0}Test', pythonVersion['v']) }}
+  - job: ${{ format('Linux{0}Test', pythonVersion[0]) }}
 
     pool:
       vmImage: 'ubuntu-latest'
