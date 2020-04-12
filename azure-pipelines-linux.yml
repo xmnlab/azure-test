@@ -7,8 +7,9 @@ jobs:
 
     variables:
       AZURECI: 1
+
       PYTHON_VERSION: ${{ pythonVersion }}
-      PYTHON_NO_DOT_VERSION: ${{ PYTHON_VERSION[0] }}${{ PYTHON_VERSION[2] }}
+      PYTHON_NO_DOT_VERSION: ${{ pythonVersionsSupportMapDot[pythonVersion] }}
 
     strategy:
       matrix:
