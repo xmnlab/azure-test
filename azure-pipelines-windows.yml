@@ -1,0 +1,36 @@
+jobs:
+  - ${{ each pythonNoDotVersion in parameters.pythonNoDotVersionsSupport }}:
+    - job:
+
+      displayName: ${{ format('Windows{0}Test', pythonNoDotVersion) }}
+
+      pool:
+        vmImage: 'windows-2019'
+
+      variables:
+        AZURECI: 1
+        PYTHON_NO_DOT_VERSION: ${{ pythonNoDotVersion }}
+        ${{ if eq(pythonNoDotVersion, '36') }}:
+          PYTHON_VERSION: '3.6'
+        ${{ if eq(pythonNoDotVersion, '37') }}:
+          PYTHON_VERSION: '3.7'
+        ${{ if eq(pythonNoDotVersion, '38') }}:
+          PYTHON_VERSION: '3.8'
+
+      strategy:
+        matrix:
+          bigquery:
+            BACKENDS: 'bigquery'
+          omniscidb:
+            BACKENDS: 'omniscidb'
+
+      steps:
+
+        - bash: echo "${PYTHON_VERSION}"
+          displayName: 'DISPLAY PYTHON VERSION'
+
+        - bash: echo "${PYTHON_NO_DOT_VERSION}"
+          displayName: 'DISPLAY PYTHON VERSION WITH NO DOT'
+
+        - bash: echo "${BACKENDS}"
+          displayName: 'DISPLAY BACKENDS'
