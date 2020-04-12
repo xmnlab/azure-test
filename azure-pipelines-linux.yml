@@ -9,7 +9,6 @@ jobs:
       AZURECI: 1
 
       PYTHON_VERSION: ${{ pythonVersion }}
-      PYTHON_NO_DOT_VERSION: ${{ pythonVersion }}
       ${{ if eq(pythonVersion, '3.6') }}:
         PYTHON_NO_DOT_VERSION: '36'
       ${{ if eq(pythonVersion, '3.7') }}:
