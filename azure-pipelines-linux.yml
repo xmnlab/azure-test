@@ -7,7 +7,6 @@ jobs:
 
     variables:
       AZURECI: 1
-
       PYTHON_VERSION: ${{ pythonVersion }}
       ${{ if eq(pythonVersion, '3.6') }}:
         PYTHON_NO_DOT_VERSION: '36'
