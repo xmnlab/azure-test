@@ -23,6 +23,22 @@ jobs:
           BACKENDS: 'bigquery'
         omniscidb:
           BACKENDS: 'omniscidb'
+        postgres:
+          BACKENDS: 'postgres'
+        mysql:
+          BACKENDS: 'mysql'
+        impala:
+          BACKENDS: 'impala'
+        pandas:
+          BACKENDS: 'pandas'
+        csv:
+          BACKENDS: 'csv'
+        parquet:
+          BACKENDS: 'parquet'
+        pyspark:
+          BACKENDS: 'pyspark'
+        spark:
+          BACKENDS: 'spark'
 
     steps:
 
