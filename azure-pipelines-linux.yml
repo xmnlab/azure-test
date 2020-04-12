@@ -1,6 +1,6 @@
 jobs:
 - ${{ each PYTHON_VERSION in parameters.python_versions_support }}:
-  - job: Linux${{ python }}Test
+  - job: Linux${{ PYTHON_VERSION }}Test
 
     pool:
       vmImage: 'ubuntu-latest'

@@ -1,15 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-parameters:
-  python_version_supports: ['3.6', '3.7', '3.8']
-
-
 jobs:
 - ${{ each PYTHON_VERSION in parameters.python_version_supports }}:
-  - job: Linux${{ python }}Test
+  - job: Linux${{ PYTHON_VERSION }}Test
 
     pool:
       vmImage: 'ubuntu-latest'
