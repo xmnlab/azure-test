@@ -1,5 +1,5 @@
 jobs:
-- ${{ each pythonVersion in parameters.python_versions_support }}:
+- ${{ each pythonVersion in parameters.pythonVersionsSupport }}:
   - job: ${{ format('Linux{0}Test', pythonVersion) }}
 
     pool:
