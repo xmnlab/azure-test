@@ -5,7 +5,7 @@ jobs:
       displayName: ${{ format('Windows{0}Test', pythonNoDotVersion) }}
 
       pool:
-        vmImage: 'ubuntu-latest'
+        vmImage: 'windows-2019'
 
       variables:
         AZURECI: 1
