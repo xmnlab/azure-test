@@ -1,5 +1,5 @@
 jobs:
-- ${{ each pythonVersion in parameters.pythonVersionsSupport }}:
+- ${{ each pythonNoDotVersion in parameters.pythonNotDoVersionsSupport }}:
   - job: ${{ format('Linux{0}Test', pythonVersion) }}
 
     pool:
@@ -7,13 +7,13 @@ jobs:
 
     variables:
       AZURECI: 1
-      PYTHON_VERSION: ${{ pythonVersion }}
-      ${{ if eq(pythonVersion, '3.6') }}:
-        PYTHON_NO_DOT_VERSION: '36'
-      ${{ if eq(pythonVersion, '3.7') }}:
-        PYTHON_NO_DOT_VERSION: '37'
-      ${{ if eq(pythonVersion, '3.8') }}:
-        PYTHON_NO_DOT_VERSION: '38'
+      PYTHON_NO_DOT_VERSION: ${{ pythonNoDotVersion }}
+      ${{ if eq(pythonVersion, '36') }}:
+        PYTHON_VERSION: '3.6'
+      ${{ if eq(pythonVersion, '37') }}:
+        PYTHON_VERSION: '3.7'
+      ${{ if eq(pythonVersion, '38') }}:
+        PYTHON_VERSION: '3.8'
 
     strategy:
       matrix:

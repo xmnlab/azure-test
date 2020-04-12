@@ -2,8 +2,8 @@ jobs:
 
 - template: azure-pipelines-linux.yml
   parameters:
-    pythonVersionsSupport: [ '3.6', '3.7', '3.8' ]
+    pythonNoDotVersionsSupport: [ '36', '37', '38' ]
 
 - template: azure-pipelines-windows.yml
   parameters:
-    pythonVersionsSupport: [ '3.6', '3.7', '3.8' ]
+    pythonVersionsSupport: [ '36', '37', '38' ]
