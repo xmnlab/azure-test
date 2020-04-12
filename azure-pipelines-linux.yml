@@ -25,11 +25,11 @@ jobs:
 
     steps:
 
-      - bash: echo ${{ PYTHON_VERSION }}
+      - bash: echo "${{ PYTHON_VERSION }}"
         displayName: 'DISPLAY PYTHON VERSION'
 
-      - bash: echo ${{ PYTHON_NO_DOT_VERSION }}
+      - bash: echo "${{ PYTHON_NO_DOT_VERSION }}"
         displayName: 'DISPLAY PYTHON VERSION WITH NO DOT'
 
-      - bash: echo ${{ BACKENDS }}
+      - bash: echo "${{ BACKENDS }}"
         displayName: 'DISPLAY BACKENDS'
