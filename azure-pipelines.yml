@@ -4,4 +4,4 @@ jobs:
     pythonNoDotVersionsSupport: [ '36', '37', '38' ]
 - template: azure-pipelines-windows.yml
   parameters:
-    pythonVersionsSupport: [ '36', '37', '38' ]
+    pythonNoDotVersionsSupport: [ '36', '37', '38' ]
