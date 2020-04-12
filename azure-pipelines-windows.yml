@@ -1,18 +1,20 @@
 jobs:
-  - ${{ each pythonNoDotVersion in parameters.pythonNotDoVersionsSupport }}:
-    - job: ${{ format('Windows{0}Test', pythonNoDotVersion) }}
+  - ${{ each pythonNoDotVersion in parameters.pythonNoDotVersionsSupport }}:
+    - job:
+
+      displayName: ${{ format('Windows{0}Test', pythonNoDotVersion) }}
 
       pool:
-        vmImage: 'windows-2019'
+        vmImage: 'ubuntu-latest'
 
       variables:
         AZURECI: 1
         PYTHON_NO_DOT_VERSION: ${{ pythonNoDotVersion }}
-        ${{ if eq(pythonVersion, '36') }}:
+        ${{ if eq(pythonNoDotVersion, '36') }}:
           PYTHON_VERSION: '3.6'
-        ${{ if eq(pythonVersion, '37') }}:
+        ${{ if eq(pythonNoDotVersion, '37') }}:
           PYTHON_VERSION: '3.7'
-        ${{ if eq(pythonVersion, '38') }}:
+        ${{ if eq(pythonNoDotVersion, '38') }}:
           PYTHON_VERSION: '3.8'
 
       strategy:
