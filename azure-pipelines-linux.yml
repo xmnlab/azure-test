@@ -1,6 +1,6 @@
 jobs:
 - ${{ each pythonVersion in parameters.pythonVersionsSupport }}:
-  - job: ${{ format('Linux{0}Test', pythonVersion[0]) }}
+  - job: ${{ format('Linux{0}Test', pythonVersion) }}
 
     pool:
       vmImage: 'ubuntu-latest'
@@ -18,7 +18,7 @@ jobs:
           BACKENDS: 'omniscidb'
 
     steps:
-    
+
       - bash: echo ${{ PYTHON_VERSION }}
         displayName: 'DISPLAY PYTHON VERSION'
 
@@ -27,4 +27,3 @@ jobs:
 
       - bash: echo ${{ BACKENDS }}
         displayName: 'DISPLAY BACKENDS'
-
