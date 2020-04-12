@@ -1,6 +1,6 @@
 jobs:
   - ${{ each pythonNoDotVersion in parameters.pythonNotDoVersionsSupport }}:
-    - job: ${{ format('Linux{0}Test', pythonNoDotVersion) }}
+    - job: ${{ format('Windows{0}Test', pythonNoDotVersion) }}
 
       pool:
         vmImage: 'windows-2019'
