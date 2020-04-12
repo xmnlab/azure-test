@@ -2,7 +2,7 @@ jobs:
 
 - template: azure-pipelines-linux.yml
   parameters:
-          pythonVersionsSupport: [ { 'v': '3.6', 'vdot': '36' }, { 'v': '3.7', 'vdot': '37' }, { 'v': '3.8', 'vdot' } ]
+    pythonVersionsSupport: [ { 'v': '3.6', 'vdot': '36' }, { 'v': '3.7', 'vdot': '37' }, { 'v': '3.8', 'vdot' } ]
 
 - template: azure-pipelines-windows.yml
   parameters:
